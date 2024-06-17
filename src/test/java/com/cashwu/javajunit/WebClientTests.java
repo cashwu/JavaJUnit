@@ -32,15 +32,29 @@ public class WebClientTests {
     //        assertEquals("it works", content);
     //    }
 
+    //    @Test
+    //    void testGetContentOK() throws IOException {
+    //
+    //        var mockHttpURLConnection = new MockConnectionFactory();
+    //        mockHttpURLConnection.setData(new ByteArrayInputStream("it works".getBytes()));
+    //
+    //        WebClient2 webClient = new WebClient2();
+    //        String content = webClient.getContent(mockHttpURLConnection);
+    //        assertEquals("it works", content);
+    //    }
+
     @Test
     void testGetContentOK() throws IOException {
 
         var mockHttpURLConnection = new MockConnectionFactory();
-        mockHttpURLConnection.setData(new ByteArrayInputStream("it works".getBytes()));
+        MockInputStream mockInputStream = new MockInputStream();
+        mockInputStream.setBuffer("it works");
+        mockHttpURLConnection.setData(mockInputStream);
 
         WebClient2 webClient = new WebClient2();
         String content = webClient.getContent(mockHttpURLConnection);
         assertEquals("it works", content);
+        mockInputStream.verify();
     }
 
     private static class StubURLStreamHandlerFactory implements URLStreamHandlerFactory {
@@ -82,5 +96,36 @@ public class WebClientTests {
             return new ByteArrayInputStream("it works".getBytes());
         }
 
+    }
+
+
+    private class MockInputStream extends InputStream {
+
+        private String buffer;
+        private int position = 0;
+        private int closeCount = 0;
+
+        public void setBuffer(String buffer) {
+            this.buffer = buffer;
+        }
+
+        @Override
+        public int read() throws IOException {
+            if (position == this.buffer.length()) {
+                return -1;
+            }
+            return this.buffer.charAt(position++);
+        }
+
+        public void close() throws IOException {
+            closeCount++;
+            super.close();
+        }
+
+        public void verify() {
+            if (closeCount != 1) {
+                throw new AssertionError("Expected 1 but got " + closeCount);
+            }
+        }
     }
 }
