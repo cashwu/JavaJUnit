@@ -19,16 +19,27 @@ public class WebClientTests {
         URL.setURLStreamHandlerFactory(new StubURLStreamHandlerFactory());
     }
 
+    //    @Test
+    //    void testGetContentOK() throws IOException {
+    //
+    //        var mockHttpURLConnection = new MockHttpURLConnection();;
+    //        mockHttpURLConnection.setupGetInputStream(new ByteArrayInputStream("it works".getBytes()));
+    //
+    //        TestableWebClient webClient = new TestableWebClient();
+    //        webClient.setHttpURLConnection(mockHttpURLConnection);
+    //
+    //        String content = webClient.getContent(new URL("https://example.com"));
+    //        assertEquals("it works", content);
+    //    }
+
     @Test
     void testGetContentOK() throws IOException {
 
-        var mockHttpURLConnection = new MockHttpURLConnection();;
-        mockHttpURLConnection.setupGetInputStream(new ByteArrayInputStream("it works".getBytes()));
+        var mockHttpURLConnection = new MockConnectionFactory();
+        mockHttpURLConnection.setData(new ByteArrayInputStream("it works".getBytes()));
 
-        TestableWebClient webClient = new TestableWebClient();
-        webClient.setHttpURLConnection(mockHttpURLConnection);
-
-        String content = webClient.getContent(new URL("https://example.com"));
+        WebClient2 webClient = new WebClient2();
+        String content = webClient.getContent(mockHttpURLConnection);
         assertEquals("it works", content);
     }
 
