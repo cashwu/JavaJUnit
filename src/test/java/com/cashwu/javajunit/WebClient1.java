@@ -11,7 +11,7 @@ import java.nio.charset.StandardCharsets;
  * @author cash.wu
  * @since 2024/06/17
  */
-public class WebClient {
+public class WebClient1 {
 
     public String getContent(URL url) throws IOException {
         URLConnection conn = createHttpURLConnection(url);
@@ -27,7 +27,7 @@ public class WebClient {
     }
 
     private static URLConnection createHttpURLConnection(URL url) throws IOException {
-        URLConnection conn = url.openConnection();
-        return conn;
+        return url.openConnection();
     }
 }
+

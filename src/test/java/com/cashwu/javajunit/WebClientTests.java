@@ -22,7 +22,11 @@ public class WebClientTests {
     @Test
     void testGetContentOK() throws IOException {
 
-        WebClient webClient = new WebClient();
+        var mockHttpURLConnection = new MockHttpURLConnection();;
+        mockHttpURLConnection.setupGetInputStream(new ByteArrayInputStream("it works".getBytes()));
+
+        TestableWebClient webClient = new TestableWebClient();
+        webClient.setHttpURLConnection(mockHttpURLConnection);
 
         String content = webClient.getContent(new URL("https://example.com"));
         assertEquals("it works", content);
