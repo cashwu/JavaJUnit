@@ -1,4 +1,4 @@
-package com.cashwu.javajunit.ch15;
+package com.cashwu.javajunit.ch15.htmlunit;
 
 import org.htmlunit.WebClient;
 import org.junit.jupiter.api.AfterEach;

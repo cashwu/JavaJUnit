@@ -1,10 +1,9 @@
-package com.cashwu.javajunit.ch15;
+package com.cashwu.javajunit.ch15.htmlunit;
 
 import org.htmlunit.BrowserVersion;
 import org.htmlunit.WebClient;
 import org.htmlunit.html.HtmlListItem;
 import org.htmlunit.html.HtmlPage;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 

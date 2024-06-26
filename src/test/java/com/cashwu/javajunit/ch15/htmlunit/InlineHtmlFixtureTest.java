@@ -1,7 +1,6 @@
-package com.cashwu.javajunit.ch15;
+package com.cashwu.javajunit.ch15.htmlunit;
 
 import org.htmlunit.MockWebConnection;
-import org.htmlunit.Page;
 import org.htmlunit.WebAssert;
 import org.htmlunit.html.HtmlPage;
 import org.junit.jupiter.api.Test;

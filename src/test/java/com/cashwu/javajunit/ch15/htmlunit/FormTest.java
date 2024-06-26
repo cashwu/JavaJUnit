@@ -1,10 +1,8 @@
-package com.cashwu.javajunit.ch15;
+package com.cashwu.javajunit.ch15.htmlunit;
 
 import org.htmlunit.CollectingAlertHandler;
 import org.htmlunit.MockWebConnection;
-import org.htmlunit.Page;
 import org.htmlunit.WebAssert;
-import org.htmlunit.html.Html;
 import org.htmlunit.html.HtmlForm;
 import org.htmlunit.html.HtmlInput;
 import org.htmlunit.html.HtmlPage;

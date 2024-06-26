@@ -1,10 +1,8 @@
-package com.cashwu.javajunit.ch15;
+package com.cashwu.javajunit.ch15.htmlunit;
 
-import org.htmlunit.Page;
 import org.htmlunit.html.HtmlListItem;
 import org.htmlunit.html.HtmlPage;
 import org.junit.jupiter.api.Test;
-import org.w3c.dom.Node;
 
 import java.io.IOException;
 
