@@ -33,6 +33,9 @@ dependencies {
 
     // https://mvnrepository.com/artifact/org.hamcrest/hamcrest
     testImplementation 'org.hamcrest:hamcrest:2.2'
+
+    // https://mvnrepository.com/artifact/org.htmlunit/htmlunit
+    implementation group: 'org.htmlunit', name: 'htmlunit', version: '4.2.0'
 }
 
 tasks.named('test') {
