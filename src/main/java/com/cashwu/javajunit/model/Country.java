@@ -20,15 +20,24 @@
  */
 package com.cashwu.javajunit.model;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
 import java.util.Objects;
 
+@Entity
 public class Country {
+
     private String name;
+    @Id
     private String codeName;
 
     public Country(String name, String codeName) {
         this.name = name;
         this.codeName = codeName;
+    }
+
+    public Country() {
     }
 
     public String getName() {
